@@ -13,6 +13,19 @@ new models leveraging **Transformer**, **Mamba**, and **LLM-based reranking** to
 2. How does LLM-based reranking compare to traditional n-gram LM fusion?
 3. What training and optimization strategies most effectively reduce **Word Error Rate (WER)** and **Phoneme Error Rate (PER)**?
 
+# 🧠 Neural Speech Decoding Pipeline
+
+A minimal brain-to-text pipeline inspired by Willett et al. (Nature 2023), extended with Transformer/Mamba and LLM reranking.
+
+## Pipeline
+
+Neural Activity ─▶ Feature Extraction ─▶ Neural Decoder (GRU / Transformer / Mamba) ─▶ CTC Logits
+                     │                                           │
+                     ▼                                           ▼
+           Threshold crossings,                       Phoneme posteriors per frame
+           spike-band power (z-score)                         (CTC)
+
+                      └──────────────▶ Beam Search (5-gram LM) ─▶ LLM Reranking/Fusion ─▶ Final Text
 
 # Requirements
 We used [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/) to test our models.  
