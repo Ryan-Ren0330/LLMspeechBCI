@@ -26,8 +26,6 @@ To run `eval_competition.py` and `notebooks/LLM_ensemble.ipynb`:
 # Model training
 To train the model, run `neural_decoder_train.py`. 
 
-In our final submission, we trained two different models (Model 1 and Model 2 in the chart below) and ensembled them (see the last section on ensembling). The configuration for these two models can be found in `conf/config_1.yaml` and `conf/config_2.yaml`. You can specify which configuration to use in `neural_decoder_train.py` line 141.
-
 Due to non-deterministic behavior of cuDNN, the training code might not produce exactly the  same results as our submission. Therefore, we have also included checkpoints for these two models.
 
 
