@@ -2,13 +2,17 @@
 Neural decoding project based on A High-Performance Speech Neuroprosthesis (Nature 2023). Reproduces the baseline RNN+CTC+5-gram pipeline and explores enhancements with Transformer, Mamba, and LLM-based language models for speech decoding.
 
 Please note that our implementation is not optimized for speed (for example, use of bidirectional GRU or the model ensembling).
+## 📘 Overview
 
-This competition is based on the data described in [Willett et al. (Nature, 2023)](https://www.nature.com/articles/s41586-023-06377-x) and our repository heavily relies on the following code prepared by the organizers at Neural Prosthetics Translational Laboratory at Stanford University.
+This project explores **brain-to-text decoding** from intracortical neural recordings.  
+We replicate the original RNN (GRU + CTC + 5-gram LM) pipeline from Willett *et al.* (2023) and introduce  
+new models leveraging **Transformer**, **Mamba**, and **LLM-based reranking** to improve decoding fluency and accuracy.
 
-- [TensorFlow implementation](https://github.com/fwillett/speechBCI/tree/main/NeuralDecoder) ('TF' in the chart below)
-- [PyTorch implementation](https://github.com/cffan/neural_seq_decoder) ('PT' in the chart below)
+### 🎯 Research Questions
+1. Can modern sequence architectures (Transformer / Mamba) outperform the RNN baseline in neural decoding?
+2. How does LLM-based reranking compare to traditional n-gram LM fusion?
+3. What training and optimization strategies most effectively reduce **Word Error Rate (WER)** and **Phoneme Error Rate (PER)**?
 
-We would like to thank the participant of the study and the organizers for making this precious data and the code public.
 
 # Requirements
 We used [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/) to test our models.  
