@@ -19,13 +19,8 @@ A minimal brain-to-text pipeline inspired by Willett et al. (Nature 2023), exten
 
 ## Pipeline
 
-Neural Activity ─▶ Feature Extraction ─▶ Neural Decoder (GRU / Transformer / Mamba) ─▶ CTC Logits
-                     │                                           │
-                     ▼                                           ▼
-           Threshold crossings,                       Phoneme posteriors per frame
-           spike-band power (z-score)                         (CTC)
+Neural activity → feature extraction → neural decoder (GRU / Transformer / Mamba) → CTC logits → beam search (5-gram LM) → LLM reranking/fusion → final text
 
-                      └──────────────▶ Beam Search (5-gram LM) ─▶ LLM Reranking/Fusion ─▶ Final Text
 
 # Requirements
 We used [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/) to test our models.  
